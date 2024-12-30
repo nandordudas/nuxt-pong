@@ -1,0 +1,36 @@
+name: Release
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - v*
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - run: corepack enable
+
+      - name: Set node
+        uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          node-version: lts/*
+
+      - run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
