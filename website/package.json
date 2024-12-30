@@ -15,6 +15,7 @@
     "upgrade": "nuxt upgrade"
   },
   "dependencies": {
+    "@nuxt/ui-pro": "3.0.0-alpha.10",
     "@pinia/nuxt": "catalog:",
     "@vueuse/nuxt": "catalog:",
     "nuxt": "catalog:",

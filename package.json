@@ -14,7 +14,7 @@
     "dev": "pnpm --recursive dev",
     "lint:fix": "pnpm lint --fix",
     "lint": "eslint --cache --flag unstable_ts_config --config .config/eslint.ts .",
-    "postinstall": "pnpm dlx simple-git-hooks",
+    "postinstall": "simple-git-hooks",
     "typecheck": "pnpm run --recursive typecheck",
     "upgrade": "pnpm dlx taze major -iwr && SKIP_INSTALL_SIMPLE_GIT_HOOKS=1 pnpm dedupe"
   },
@@ -24,6 +24,7 @@
     "@commitlint/prompt-cli": "catalog:",
     "conventional-changelog-atom": "catalog:",
     "eslint": "catalog:",
+    "eslint-plugin-format": "catalog:",
     "lint-staged": "catalog:",
     "simple-git-hooks": "catalog:"
   },

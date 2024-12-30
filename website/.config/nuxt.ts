@@ -27,13 +27,13 @@ export default defineNuxtConfig({
     head: {
       templateParams: {
         separator: '\u00B7',
-        siteName: 'Website',
+        siteName: 'NuxtPong',
       },
       titleTemplate: '%s %separator %siteName',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
     },
-    rootTag: 'body', // [TODO] check layout-, and page transitions are working properly
+    rootTag: 'body',
     rootAttrs: {
       'id': import.meta.env.npm_package_name.split('/')[1],
       'data-version': packageVersion,
@@ -50,6 +50,43 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
   ],
 
+  nitro: {
+    experimental: {
+      websocket: true,
+    },
+    // routeRules: {
+    //   '/**': {
+    //     headers: {
+    //       'Cross-Origin-Opener-Policy': 'same-origin',
+    //       'Cross-Origin-Embedder-Policy': 'require-corp',
+    //     },
+    //   },
+    // },
+    typescript: {
+      tsConfig: {
+        compilerOptions: {
+          skipLibCheck: true,
+        },
+        exclude: [
+          '../.config/nuxt.ts',
+          '../app/**/*',
+        ],
+      },
+    },
+  },
+
+  vite: {
+    server: {
+      headers: {
+        'Cross-Origin-Opener-Policy': 'same-origin',
+        'Cross-Origin-Embedder-Policy': 'require-corp',
+      },
+    },
+    worker: {
+      format: 'es',
+    },
+  },
+
   $development: {
     app: {
       head: {
@@ -62,6 +99,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxt/ui-pro',
     '@pinia/nuxt',
     '@vueuse/nuxt',
   ],

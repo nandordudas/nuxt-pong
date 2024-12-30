@@ -3,7 +3,9 @@ import antfu from '@antfu/eslint-config'
 const MAXIMUM_CODE_LINE_LENGTH: number = 120
 const MAXIMUM_CYCLOMATIC_COMPLEXITY: number = 5
 
-export default antfu()
+export default antfu({
+  formatters: true,
+})
   .override('antfu/stylistic/rules', {
     rules: {
       'curly': ['error', 'multi-or-nest', 'consistent'],

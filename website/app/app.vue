@@ -1,8 +1,14 @@
+<script setup lang="ts">
+import { en } from '@nuxt/ui/locale'
+</script>
+
 <template>
   <NuxtRouteAnnouncer />
   <NuxtLoadingIndicator />
 
   <NuxtLayout>
-    <NuxtPage :page-key="route => route.fullPath" />
+    <UApp :locale="en">
+      <NuxtPage :page-key="route => route.fullPath" />
+    </UApp>
   </NuxtLayout>
 </template>

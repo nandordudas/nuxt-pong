@@ -49,6 +49,7 @@
     "yaml",
     "css",
     "postcss",
+    "tailwindcss",
     "github-actions-workflow"
   ],
   // #endregion
@@ -62,7 +63,7 @@
   // #region VS Code General
   "remote.portsAttributes": {
     /* [INFO] set PORT environment variable properly */
-    "3088": {
+    "6547": {
       "label": "Nuxt App",
       /**
        * [INFO] in the ~/.nuxtrc file `devServer.https.[cert/key]` shold be set
@@ -109,6 +110,15 @@
   // #region usernamehw.errorlens
   "errorLens.fontStyleItalic": true,
   "errorLens.gutterIconsEnabled": true,
-  "errorLens.scrollbarHackEnabled": true
+  "errorLens.scrollbarHackEnabled": true,
+  // #endregion
+
+  // #region
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
   // #endregion
 }
